@@ -1,0 +1,87 @@
+
+/* colors */
+
+/* blue sky */
+@bluesky1:	#c6dfff;
+@bluesky2:	#97baf1;
+
+@greysky1:	#eaeaf1;
+@greysky2:	#d1d2d5;
+
+
+html {
+    height: 100%;
+}
+
+body{
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    perspective: 400; 
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    height: 100%;
+    margin: 0;
+    background-attachment: fixed;
+    .transition(all 2s ease-in);
+    
+    &.bluesky {
+		#gradient > .vertical(@bluesky1,darken(@bluesky2,15));
+	}
+	&.greysky {
+		#gradient > .vertical(@greysky1, @greysky2);
+	}
+
+	
+
+}
+#world{
+	/* background-color: red; */
+    height: 512px;
+    left: 50%;
+    margin-left: -256px;
+    margin-top: -256px;
+    position: absolute;
+    top: 50%;
+    transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;  
+	-o-transform-style: preserve-3d;    
+    width: 512px;
+}
+
+#world div{
+	    transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        background-image: url(../img/cloud.png);
+}
+
+
+    .cloudBase {
+        /* background-color: rgba( 255, 255, 255, .5 ); */
+        position: absolute;
+        left: 256px;
+        top: 256px;
+        width: 20px;
+        height: 20px;
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+    
+    .cloudLayer {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 256px;
+        height: 256px;
+        margin-left: -128px;
+        margin-top: -128px;
+        /* background-color: rgba( 255, 255, 255, .1 ); */
+        -webkit-transition: opacity .5s ease-out;
+        -moz-transition: opacity .5s ease-out;
+        -o-transition: opacity .5s ease-out;
+    }
