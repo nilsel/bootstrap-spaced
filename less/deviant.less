@@ -106,13 +106,20 @@ body{
     margin: 0;
     background-attachment: fixed;
 
-    .transition(-webkit-perspective 5s ease-in-out);
+    .transition(-webkit-perspective background 5s ease-in-out);
 
-    &.bluesky {
+
+	&.grey-sky {
+		#gradient > .vertical(@greysky1, @greysky2);
+	}
+    &.blue-sky {
 		#gradient > .vertical(@bluesky1,darken(@bluesky2,15));
 	}
-	&.greysky {
-		#gradient > .vertical(@greysky1, @greysky2);
+	&.evening-sky {
+		#gradient > .vertical(#2573ff , #1b2f6a);
+	}
+	&.night-sky {
+		#gradient > .vertical(#1b2f6a , #070d1e);
 	}
 
 	
