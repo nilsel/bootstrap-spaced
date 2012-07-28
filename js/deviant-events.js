@@ -54,7 +54,7 @@
         div.style.oTransform = t;
         world.appendChild( div );
         
-        for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
+        for( var j = 0; j < 6 + Math.round( Math.random() * 10 ); j++ ) {
             var cloud = document.createElement( 'div' );
             cloud.className = 'cloudLayer';
             

@@ -11,6 +11,7 @@
 
 html {
     height: 100%;
+
 }
 
 body{
@@ -25,8 +26,9 @@ body{
     height: 100%;
     margin: 0;
     background-attachment: fixed;
-    .transition(all 2s ease-in);
-    
+
+    .transition(-webkit-perspective 5s ease-in-out);
+
     &.bluesky {
 		#gradient > .vertical(@bluesky1,darken(@bluesky2,15));
 	}
@@ -50,6 +52,7 @@ body{
 	-moz-transform-style: preserve-3d;  
 	-o-transform-style: preserve-3d;    
     width: 512px;
+	pointer-events:none;
 }
 
 #world div{
@@ -58,6 +61,8 @@ body{
         -moz-transform-style: preserve-3d;
         -o-transform-style: preserve-3d;
         background-image: url(../img/cloud.png);
+    .transition(all 2s ease-in);
+
 }
 
 
@@ -84,4 +89,65 @@ body{
         -webkit-transition: opacity .5s ease-out;
         -moz-transition: opacity .5s ease-out;
         -o-transition: opacity .5s ease-out;
+        z-index: 1;
+        pointer-events:none; /* thats pretty important.. */
     }
+
+
+
+
+.navbar .container a.brand {
+	font-family: "Chango", serif;
+	font-size: 170%;
+	color: #FF8F00;
+	text-shadow: /* 1px 1px 0px rgba(255,220,0,0.9), */
+	0 0 15px rgba(0, 0, 0, 1);
+}
+
+.navbar .nav > li > a {
+	padding: 13px 10px 11px;
+}
+
+h1 {
+	font-size: 190%;
+	font-family: Chango, serif;
+
+}
+.container .row-fluid {
+	z-index: 50;
+}
+
+.navbar {
+	z-index: 55;
+}
+
+a {
+	z-index: 100000;
+}
+
+.well {
+	padding: 10px 10px 10px 20px;
+	
+}
+
+
+ul, ol {
+	
+	margin: 0 0 10px 15px;
+}
+
+.navbar-inner {
+	background-image: url(../../../img/carbonbg.png);
+	background-repeat: repeat-x;
+	
+}
+.navbar .nav {
+	text-transform: uppercase;
+	
+}
+
+.navbar .nav .active > a, .navbar .nav .active > a:hover {
+	background-color: transparent;
+	text-decoration: underline;
+}
+

@@ -45,13 +45,15 @@
 
 // Typography
 // -------------------------
+
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+/* @serifFontFamily:       Georgia, "Times New Roman", Times, serif; */
+@serifFontFamily:        'Crete Round', serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@baseFontSize:          13px;
-@baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        18px;
+@baseFontSize:          14px;
+@baseFontFamily:        @serifFontFamily;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
@@ -197,7 +199,7 @@
 // -------------------------
 @gridColumns:             12;
 @gridColumnWidth:         60px;
-@gridGutterWidth:         20px;
+@gridGutterWidth:         10px;
 @gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
 
 // Fluid grid

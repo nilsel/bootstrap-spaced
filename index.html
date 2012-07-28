@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Deviant, from Norway!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,13 +14,20 @@
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    <link href="docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="docs/assets/css/responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <!-- google fonts are nice, this one (Chango) is by Fontstage -->
+    <link href='http://fonts.googleapis.com/css?family=Chango&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round:400,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+    
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="docs/assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="docs/assets/ico/apple-touch-icon-144-precomposed.png">
@@ -30,7 +37,8 @@
   </head>
 
 	<body id="viewport" class="bluesky">
-
+	
+	<!-- navbar background texture by ~Thousandhands: http://thousandhands.deviantart.com/art/Metall-pattern-for-webdesigner-79870254 -->
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -39,12 +47,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">DEVIANT.NO</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/webmail">Webmail</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -54,17 +61,65 @@
   </div> <!-- /world -->
 
     <div class="container">
-      
-      <div class="span5">
-      	<div class="well">
-      		<h1>Bootstrap starter template</h1>
-      		<p>CSS3 Clouds stolen from <a href="http://www.clicktorelease.com/tutorials/css3dclouds/">@thespite</a>'s article.</p>
-      		<p>Also: learning Git ('n stuff)</p>
-      	</div>
+      <div class="row-fluid">
+
+      <div class="span8 well">
+      		<img src="http://deviant.no/gfx/bender.png" class="pull-right"/>
+      		<h1>System status</h1>
+      		<h3>Ny server! (igjen)</h3>
+      		<span class="label label-info">28/07/12</span>
+      		<p>
+      			Ting er på plass på ny, rask server. Meld fra til Nils hvis noe ikke stemmer.
+      			<a href="/webmail">webmail</a> er oppe og går.
+     		</p>
+      		<hr/>
       </div>
 
 
 
+      <div class="span4 well">
+      	<h1>Linkbox</h1>
+      		<hr/>
+			<h6>Code:</h6>
+			<ul>
+				<li>CSS3 clouds by <a href="http://www.clicktorelease.com/tutorials/css3dclouds/">@thespite</a></li>
+				<li>Twitter <a href="http://twitter.github.com/bootstrap">bootstrap</a></li>
+			</ul>
+			<hr/>
+			<h6>Links:</h6>
+			<ul>
+				<li><a href="http://deviant.no/nils/palme/">Olof Palme - En levande vilja (utvalgte taler)</a><br/>(via <a href="http://thepiratebay.org/">Pirate Bay</a>)</li>
+				<li><a href="http://www.democracynow.org/">Democracy Now</a></li>
+				<li><a href="http://boxee.tv/">Boxee</a></li>
+				<li><a href="http://www.efn.no/">Elektronisk Forpost Norge</a> / <a href="http://www.eff.org">EFF</a></li>
+				<li><a href="http://www.cryptome.org/">Cryptome</a></li>
+				<li><a href="http://www.slashdot.org/">Slashdot</a></li>
+				<li><a href="https://github.com/nilsel">Github</a></li>
+			</ul>
+			<hr/>
+			<h6>Friends:</h6>
+			<ul>
+				<li><a href="http://www.kingsize.no/">Kingsize</a></li>
+				<li><a href="http://www.reeltime.no/">Reeltime</a></li>
+				<li><a href="http://www.amnesty.no/">Amnesty</a></li>
+				<li><a href="https://min.homebase.no/?page=epg">Homebase EPG</a></li>
+				<li><a href="http://www.kazaogkarlsen.com/">Kaza &amp; Karlsen</a></li>
+				<li><a href="http://www.voeff.no/">V.O.E.F.F.</a></li>
+			</ul>
+			<hr/>
+			<h6>Self-promotion</h6>
+			<ul>
+				<li><a href="http://www.ariander.com/">-&gt; Arild</a> (<a href="http://soundcloud.com/ariander">Soundcloud</a>)</li>
+				<li><a href="http://deviant.no/nils/">-&gt; Nils </a> (<a href="http://soundcloud.com/nilsel">Soundcloud</a>)</li>
+			</ul>
+
+	
+      </div>
+
+      </div> <!-- /row -->
+      
+      
+      
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -72,19 +127,19 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="docs/assets/js/jquery.js"></script>
     <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
+    <!-- <script src="js/bootstrap-alert.js"></script> -->
+    <!-- <script src="js/bootstrap-modal.js"></script> -->
+    <!-- <script src="js/bootstrap-dropdown.js"></script> -->
+    <!-- <script src="js/bootstrap-scrollspy.js"></script> -->
+    <!-- <script src="js/bootstrap-tab.js"></script> -->
+    <!-- <script src="js/bootstrap-tooltip.js"></script> -->
+    <!-- <script src="js/bootstrap-popover.js"></script> -->
+    <!-- <script src="js/bootstrap-button.js"></script> -->
     <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+    <!-- <script src="js/bootstrap-carousel.js"></script> -->
+    <!-- <script src="js/bootstrap-typeahead.js"></script> -->
     <script src="js/deviant-events.js"></script>
-    <script src="libs/jquery.parallax.min.js"></script>
 
   </body>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </html>
