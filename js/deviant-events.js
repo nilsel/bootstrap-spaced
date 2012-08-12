@@ -1,3 +1,5 @@
+/*global $:false, requestAnimationFrame:false*/
+/*jshint devel:true, browser:false*/
     
     (function() {
         var lastTime = 0;
@@ -8,7 +10,7 @@
               'CancelRequestAnimationFrame'];
         }
 
-        if (!window.requestAnimationFrame)
+        if (!window.requestAnimationFrame){
             window.requestAnimationFrame = function(callback, element) {
                 var currTime = new Date().getTime();
                 var timeToCall = Math.max(0, 16 - (currTime - lastTime));
@@ -17,19 +19,19 @@
                 lastTime = currTime + timeToCall;
                 return id;
             };
+        }
 
-        if (!window.cancelAnimationFrame)
+        if (!window.cancelAnimationFrame){
             window.cancelAnimationFrame = function(id) {
                 clearTimeout(id);
             };
-    }())
+        }
+    }());
 
     var layers = [],
         objects = [],
-        
         world = document.getElementById( 'world' ),
         viewport = document.getElementById( 'viewport' ),
-        
         d = 0,
         p = 400,
         worldXAngle = 0,
@@ -39,7 +41,6 @@
     viewport.style.MozPerspective = p;
     viewport.style.oPerspective = p;
     
-    generate();
     
     function createCloud() {
     
@@ -58,24 +59,24 @@
             var cloud = document.createElement( 'div' );
             cloud.className = 'cloudLayer';
             
-            var x = 256 - ( Math.random() * 512 );
-            var y = 256 - ( Math.random() * 512 );
-            var z = 100 - ( Math.random() * 200 );
+            var cx = 256 - ( Math.random() * 512 );
+            var cy = 256 - ( Math.random() * 512 );
+            var cz = 100 - ( Math.random() * 200 );
             var a = Math.random() * 360;
-            var s = .25 + Math.random();
-            x *= .2; y *= .2;
+            var s = 0.25 + Math.random();
+            x *= 0.2; y *= 0.2;
             cloud.data = { 
-                x: x,
-                y: y,
-                z: z,
+                x: cx,
+                y: cy,
+                z: cz,
                 a: a,
                 s: s,
-                speed: .1 * Math.random()
+                speed: 0.1 * Math.random()
             };
-            var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
-            cloud.style.webkitTransform = t;
-            cloud.style.MozTransform = t;
-            cloud.style.oTransform = t;
+            var ct = 'translateX( ' + cx + 'px ) translateY( ' + cy + 'px ) translateZ( ' + cz + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
+            cloud.style.webkitTransform = ct;
+            cloud.style.MozTransform = ct;
+            cloud.style.oTransform = ct;
         
             div.appendChild( cloud );
             layers.push( cloud );
@@ -83,16 +84,6 @@
         
         return div;
     }
-    
-    window.addEventListener( 'mousewheel', onContainerMouseWheel );
-    window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
-
-    window.addEventListener( 'mousemove', function( e ) {
-        worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
-        worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
-        updateView();
-    } );
-    
     function generate() {
         objects = [];
         if ( world.hasChildNodes() ) {
@@ -104,7 +95,6 @@
             objects.push( createCloud() );
         }
     }
-    
     function updateView() {
         var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
         world.style.webkitTransform = t;
@@ -112,30 +102,41 @@
         world.style.oTransform = t;
     }
     
-    function onContainerMouseWheel( event ) {
+    //window.addEventListener( 'mousewheel', onContainerMouseWheel );
+    ///test window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
+
+    window.addEventListener( 'mousemove', function( e ) {
+        worldYAngle = -( 0.5 - ( e.clientX / window.innerWidth ) ) * 180;
+        worldXAngle = ( 0.5 - ( e.clientY / window.innerHeight ) ) * 180;
+        updateView();
+    } );
+    
+    
+    
+    /*function onContainerMouseWheel( event ) {
             
         event = event ? event : window.event;
         d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
         updateView();
         
-    }
+    }*/
     
-/*
-    Iterate layers[], update the rotation and apply the
-    inverse transformation currently applied to the world.
-    Notice the order in which rotations are applied.
-*/
+
+//    Iterate layers[], update the rotation and apply the
+//    inverse transformation currently applied to the world.
+//    Notice the order in which rotations are applied.
+
 function update (){
          
     for( var j = 0; j < layers.length; j++ ) {
         var layer = layers[ j ];
         layer.data.a += layer.data.speed;
-        var t = 'translateX( ' + layer.data.x + 'px ) \
-            translateY( ' + layer.data.y + 'px ) \
-            translateZ( ' + layer.data.z + 'px ) \
-            rotateY( ' + ( - worldYAngle ) + 'deg ) \
-            rotateX( ' + ( - worldXAngle ) + 'deg ) \
-            scale( ' + layer.data.s + ')';
+        var t = 'translateX( ' + layer.data.x + 'px ) ' +
+            'translateY( ' + layer.data.y + 'px ) ' +
+            'translateZ( ' + layer.data.z + 'px ) ' +
+            'rotateY( ' + ( - worldYAngle ) + 'deg ) ' +
+            'rotateX( ' + ( - worldXAngle ) + 'deg ) ' +
+            'scale( ' + layer.data.s + ')';
         layer.style.transform = t;
     }
      
@@ -143,5 +144,31 @@ function update (){
      
 }
 
-    
+     generate();
+   
     update();
+    
+
+/*
+*	Change background based on time of day
+*/
+
+$(document).ready(function(){
+
+	var date = new Date();
+	var current_hour = date.getHours();
+	/* yes we coulda, shoulda, wouda used a switch here */
+	if(current_hour > 0){
+		$("body").removeClass().addClass("night-sky");
+	}
+	if(current_hour > 5){
+		$("body").removeClass().addClass("blue-sky");
+	}
+	if(current_hour > 18){
+		$("body").removeClass().addClass("evening-sky");
+	}
+	if(current_hour > 20){
+		$("body").removeClass().addClass("night-sky");
+	}
+
+});

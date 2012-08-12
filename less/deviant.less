@@ -96,21 +96,21 @@ html {
 body{
     bottom: 0;
     left: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     perspective: 400; 
     position: absolute;
     right: 0;
     top: 0;
-
+    
     height: 100%;
     margin: 0;
     background-attachment: fixed;
 
     .transition(-webkit-perspective background 5s ease-in-out);
+    
 
-
-	&.grey-sky {
-		#gradient > .vertical(@greysky1, @greysky2);
+	&.night-sky {
+		#gradient > .vertical(#070e17, #112135);
 	}
     &.blue-sky {
 		#gradient > .vertical(@bluesky1,darken(@bluesky2,15));
@@ -121,7 +121,9 @@ body{
 	&.night-sky {
 		#gradient > .vertical(#1b2f6a , #070d1e);
 	}
-
+	&.dusk-sky {
+		#gradient > .vertical(#36306d,#0f1c2d);
+	}
 	
 
 }
@@ -223,7 +225,7 @@ ul, ol {
 }
 
 .navbar-inner {
-	background-image: url(../img/carbonbg.png);
+	/* background-image: url(../img/carbonbg.png); */
 	background-repeat: repeat-x;
 	
 }
