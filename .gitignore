@@ -36,3 +36,5 @@ nbproject
 node_modules
 
 test.html
+
+css/dist/style.css

@@ -1,0 +1,64 @@
+{
+  "project": {
+    "details": {
+      "name": "bootstrap-spaced",
+      "homepage": "",
+      "author": ""
+    },
+    "environment": {
+      "root": "bootstrap-spaced",
+      "abs_path": "/Users/nils/Sites/experiments/bootstrap-spaced/",
+      "web_root": "",
+      "port": 8081,
+      "host": "localhost",
+      "home_file": "index.*"
+    },
+    "options": {
+      "watch_config": false,
+      "reload": false
+    }
+  },
+  "build": {
+    "js": ["js/lib/jquery-1.8.0.js", "js/deviant-events.js"],
+    "min": {
+      "dest": "js/min/output.min.js"
+    },
+    "dist": "js/dist/",
+    "tmpl": {
+      "src": "js/mustache/"
+    },
+    "lint": {},
+    "css": {
+      "src": [
+        "css/*.css"
+      ],
+      "dest": "css/dist/style.css"
+    },
+    "options": {
+      "watch": true,
+      "verbose": true,
+      "testsOnWatch": false,
+      "linting": true,
+      "force": true
+    }
+  },
+  "proxy": {
+    "resources": [],
+    "options": {
+      "verbose": true,
+      "port": 8080
+    }
+  },
+  "fileserver": {
+    "host": "localhost",
+    "port": 8081,
+    "options": {
+      "verbose": false
+    }
+  },
+  "options": {
+    "verbose": true,
+    "logToFile": false,
+    "scripture": true
+  }
+}
